@@ -34,3 +34,25 @@ docker-compose exec kafka kafka-console-consumer.sh \
 --topic transactions
 ```
 
+> input topic (1000 records/s)
+
+
+
+### Mysql
+
+Explore the results from inside MySQL.
+
+```sh
+$ docker-compose exec mysql mysql -Dsql-demo -usql-demo -pdemo-sql
+
+mysql> use sql-demo;
+Database changed
+
+mysql> select count(*) from spend_report;
++----------+
+| count(*) |
++----------+
+|      110 |
++----------+
+```
+

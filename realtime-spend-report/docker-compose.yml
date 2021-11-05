@@ -20,6 +20,20 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   data-generator:
     image: listart/data-generator:1
-    build: ../data-generator
+    build: ../docker/data-generator
     depends_on:
       - kafka
+  mysql:
+    image: mysql:8.0.19
+    command: --default-authentication-plugin=mysql_native_password --secure_file_priv=/data
+#    ports:
+#      - "3306:3306"
+#      - "33060:33060"
+    environment:
+      MYSQL_USER: "sql-demo"
+      MYSQL_PASSWORD: "demo-sql"
+      MYSQL_DATABASE: "sql-demo"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - ../docker/mysql-spend-report-init:/docker-entrypoint-initdb.d
+      - ./data:/data

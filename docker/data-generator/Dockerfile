@@ -1,7 +1,7 @@
 FROM maven:3.6-jdk-8-slim AS builder
 
-COPY ./src /opt/data-producer/src
-COPY ./pom.xml /opt/data-producer/pom.xml
+COPY src /opt/data-producer/src
+COPY pom.xml /opt/data-producer/pom.xml
 
 RUN cd /opt/data-producer; \
     mvn clean install
