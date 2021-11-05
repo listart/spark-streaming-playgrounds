@@ -1,0 +1,25 @@
+version: '2.1'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper:3.4.6
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka:2.12-2.2.1
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: "kafka"
+      KAFKA_ADVERTISED_PORT: "9092"
+      HOSTNAME_COMMAND: "route -n | awk '/UG[ \t]/{print $$2}'"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "kafka:1:1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  data-generator:
+    image: listart/data-generator:1
+    build: ../data-generator
+    depends_on:
+      - kafka
