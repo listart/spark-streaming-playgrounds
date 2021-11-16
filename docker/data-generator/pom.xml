@@ -7,14 +7,15 @@
     <groupId>spark.streaming.playground</groupId>
     <artifactId>data-generator</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kafka.version>2.2.0</kafka.version>
-        <slf4j.version>1.7.25</slf4j.version>
         <java.version>1.8</java.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <kafka.version>2.2.0</kafka.version>
+        <slf4j.version>1.7.25</slf4j.version>
     </properties>
 
     <dependencies>
@@ -23,16 +24,16 @@
             <artifactId>kafka-clients</artifactId>
             <version>${kafka.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-log4j12</artifactId>-->
-<!--            <version>${slf4j.version}</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>slf4j-log4j12</artifactId>-->
+        <!--            <version>${slf4j.version}</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j.version}</version>
-<!--            <scope>compile</scope>-->
+            <!--            <scope>compile</scope>-->
         </dependency>
     </dependencies>
 

@@ -1,5 +1,11 @@
 # Realtime Spend Report Demo
 
+If you want to follow along, you will require a computer with:
+
+- Java 8 or 11
+- Maven
+- Docker
+
 
 
 ## Starting the Playground
@@ -44,9 +50,6 @@ Explore the results from inside MySQL.
 
 ```sh
 $ docker-compose exec mysql mysql -Dsql-demo -usql-demo -pdemo-sql
-
-mysql> use sql-demo;
-Database changed
 
 mysql> select count(*) from spend_report;
 +----------+
