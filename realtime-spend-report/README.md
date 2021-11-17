@@ -65,3 +65,5 @@ mysql> select count(*) from spend_report;
 
 Finally, go to Grafana http://localhost:3000 to see the fully visualized result!
 
+![image-20211117100509339](images/README/grafana-board.png)
+
